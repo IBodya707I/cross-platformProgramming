@@ -18,6 +18,7 @@ import org.jetbrains.compose.resources.painterResource
 
 import testkmp.composeapp.generated.resources.Res
 import testkmp.composeapp.generated.resources.compose_multiplatform
+import co.touchlab.kermit.Logger
 
 @Composable
 @Preview
@@ -31,17 +32,20 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = { showContent = !showContent }) {
+            Button(onClick = {
+                showContent = !showContent
+                Logger.i { "Logger test." }
+            }) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
+                val currentTime = remember { TimeZoneHelperImpl().currentTime() }
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+                    Text("Current time: $currentTime")
                 }
             }
         }
