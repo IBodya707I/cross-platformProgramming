@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Testkmp</string>
+    <string name="main">Main</string>
+    <string name="buttons">Buttons</string>
+    <string name="checkboxes">Checkboxes</string>
+    <string name="back">Back</string>
 </resources>

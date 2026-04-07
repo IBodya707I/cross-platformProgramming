@@ -19,35 +19,14 @@ import org.jetbrains.compose.resources.painterResource
 import testkmp.composeapp.generated.resources.Res
 import testkmp.composeapp.generated.resources.compose_multiplatform
 import co.touchlab.kermit.Logger
+import com.example.testkmp.data.timezones.TimeZoneHelperImpl
+import com.example.testkmp.ui.screens.AppNavigation
+import com.example.testkmp.ui.theme.AppTheme
 
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = {
-                showContent = !showContent
-                Logger.i { "Logger test." }
-            }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val currentTime = remember { TimeZoneHelperImpl().currentTime() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Current time: $currentTime")
-                }
-            }
-        }
+    AppTheme {
+        AppNavigation()
     }
 }

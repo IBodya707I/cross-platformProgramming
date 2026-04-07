@@ -1,4 +1,4 @@
-package com.example.testkmp
+package com.example.testkmp.data.timezones
 
 interface TimeZoneHelper {
     fun getTimeZoneStrings(): List<String>
