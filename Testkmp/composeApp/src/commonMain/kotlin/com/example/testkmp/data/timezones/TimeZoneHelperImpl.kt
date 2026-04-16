@@ -92,7 +92,7 @@ class TimeZoneHelperImpl: TimeZoneHelper {
     private fun formatDateTime(dateTime: LocalDateTime): String {
         val stringBuilder = StringBuilder()
         val minute = dateTime.minute
-        var hour = dateTime.hour + 2 % 24
+        var hour = dateTime.hour
         if(hour < 10){
             stringBuilder.append('0')
         }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main">Main</string>
+    <string name="buttons">Buttons</string>
+    <string name="checkboxes">Checkboxes</string>
+    <string name="chips">Chips</string>
+    <string name="back">Back</string>
+    <string name="date_pickers">DatePickers</string>
+    <string name="dialogs">Dialogs</string>
+    <string name="dividers">Dividers</string>
+    <string name="progressbars">ProgressBars</string>
+    <string name="radiobuttons">RadioButtons</string>
+    <string name="switchs">Switchs</string>
+    <string name="timepickers">TimePickers</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="world_clocks">World Clocks</string>
+    <string name="find_meeting">Find Meeting Time</string>
+    <string name="done">Done</string>
+</resources>
