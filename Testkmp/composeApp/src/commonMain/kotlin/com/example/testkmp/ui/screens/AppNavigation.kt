@@ -38,7 +38,7 @@ import com.example.testkmp.ui.main.MainScreen
 import com.example.testkmp.ui.progressbars.ProgressBarsScreen
 import com.example.testkmp.ui.radiobuttons.RadioButtonsScreen
 import com.example.testkmp.ui.switchs.SwitchsScreen
-import com.example.testkmp.ui.timepickers.TimePickersScreen
+import com.example.testkmp.ui.timepickers.TimePickers
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 
@@ -162,7 +162,7 @@ fun AppNavigation() {
                 SwitchsScreen()
             }
             composable(route = AppScreen.TimePickers.name) {
-                TimePickersScreen()
+                TimePickers()
             }
         }
     }
