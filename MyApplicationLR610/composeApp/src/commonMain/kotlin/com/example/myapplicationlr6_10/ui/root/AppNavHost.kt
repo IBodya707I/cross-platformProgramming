@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.myapplicationlr6_10.ui.about.AboutPage
+import com.example.myapplicationlr6_10.ui.about.AboutScreen
 import com.example.myapplicationlr6_10.ui.reminders.RemindersPage
 
 @Composable
@@ -25,7 +25,7 @@ fun AppNavHost(
         }
 
         composable(Screen.AboutDevice.route) {
-            AboutPage(
+            AboutScreen(
                 onUpButtonClick = { navController.popBackStack() }
             )
         }

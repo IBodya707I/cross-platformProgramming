@@ -16,18 +16,24 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.myapplicationlr6_10.data.about.AboutRepository
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun AboutPage(
+internal fun AboutScreen(
+    viewModel: AboutViewModel = viewModel(
+        factory = aboutViewModelFactory,
+    ),
     onUpButtonClick: () -> Unit
 ) {
     Column {
         Toolbar(onUpButtonClick = onUpButtonClick)
-        ContentView()
+        AboutContent(viewModel)
     }
 }
 
@@ -50,13 +56,13 @@ private fun Toolbar(
 }
 
 @Composable
-private fun ContentView() {
-    val items = AboutRepository().getAbout()
+private fun AboutContent(viewModel: AboutViewModel) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
     ) {
-        items(items) { row ->
+        items(state) { row ->
             RowView(title = row.first, subtitle = row.second)
         }
     }
@@ -80,5 +86,12 @@ private fun RowView(
             )
         }
         HorizontalDivider()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AboutPreview() {
+    AboutScreen {
     }
 }
