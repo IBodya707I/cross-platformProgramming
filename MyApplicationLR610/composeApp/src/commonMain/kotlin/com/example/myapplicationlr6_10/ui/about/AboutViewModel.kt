@@ -3,8 +3,6 @@ package com.example.myapplicationlr6_10.ui.about
 import androidx.compose.runtime.Stable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.myapplicationlr6_10.data.about.AboutRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,11 +28,3 @@ internal class AboutViewModel(
         }
     }
 }
-
-val aboutViewModelFactory = viewModelFactory {
-    initializer {
-        AboutViewModel(getAboutRepository())
-    }
-}
-
-internal fun getAboutRepository(): AboutRepository = AboutRepository()
