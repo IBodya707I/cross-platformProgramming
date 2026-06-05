@@ -75,7 +75,7 @@ kotlin {
 
     sqldelight {
         databases {
-            create("AppDatabase") {
+            create("Organise") {
                 packageName = "com.example.myapplicationlr6_10.database"
             }
         }

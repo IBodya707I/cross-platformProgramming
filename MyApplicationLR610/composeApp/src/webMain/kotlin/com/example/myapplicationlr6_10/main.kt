@@ -8,7 +8,9 @@ import com.example.myapplicationlr6_10.ui.theme.AppTheme
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    initKoin { printLogger() }
+    initKoin { 
+        printLogger() 
+    }
     ComposeViewport {
         AppTheme {
             AppScaffold()

@@ -7,7 +7,9 @@ import com.example.myapplicationlr6_10.ui.root.AppScaffold
 import com.example.myapplicationlr6_10.ui.theme.AppTheme
 
 fun main() = application {
-    initKoin { printLogger() }
+    initKoin { 
+        printLogger() 
+    }
     Window(
         onCloseRequest = ::exitApplication,
         title = "MyApplicationLR610",
