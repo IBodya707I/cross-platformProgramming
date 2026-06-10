@@ -46,6 +46,7 @@ internal class AboutViewModel(
     init {
         Logger.w("init")
         aboutRepository.increaseVisitCount()
+        aboutRepository.updateVisitedDate()
         fetchData()
     }
 
