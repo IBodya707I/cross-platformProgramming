@@ -1,9 +1,13 @@
 package com.example.application3.di
 
-import com.example.application3.data.posts.AppPostApiService
-import com.example.application3.data.posts.PostApiService
-import com.example.application3.domain.posts.AppPostRepository
-import com.example.application3.domain.posts.PostRepository
+import com.example.application3.data.posts.AppPostRepository
+import com.example.application3.data.posts.service.AppPostApiService
+import com.example.application3.data.posts.service.PostApiService
+import com.example.application3.data.posts.PostRepository
+import com.example.application3.domain.posts.create.CreatePostUseCase
+import com.example.application3.domain.posts.edit.EditPostUseCase
+import com.example.application3.domain.posts.obtain.ObtainPostsUseCase
+import com.example.application3.domain.posts.remove.RemovePostUseCase
 import com.example.application3.presentation.AppViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -13,10 +17,10 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.core.module.dsl.bind
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
-import org.koin.plugin.module.dsl.viewModel
 
 val networkModule = module {
     single {
@@ -44,5 +48,9 @@ val networkModule = module {
 val appModule = module {
     includes(networkModule)
     singleOf(::AppPostRepository) { bind<PostRepository>() }
+    factoryOf(::CreatePostUseCase)
+    factoryOf(::EditPostUseCase)
+    factoryOf(::ObtainPostsUseCase)
+    factoryOf(::RemovePostUseCase)
     viewModelOf(::AppViewModel)
 }
